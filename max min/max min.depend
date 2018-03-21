@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1521644373 source:c:\users\alumno\desktop\prog1-master\max min\main.c
+	<stdio.h>
+	<stdlib.h>
+	<limits.h>
+
