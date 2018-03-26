@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1522070051 source:c:\users\alumno\desktop\prog1-master\ej7recup\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+
