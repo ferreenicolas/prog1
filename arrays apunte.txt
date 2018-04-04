@@ -17,3 +17,40 @@ int m3 [cant];
 
 int leg [cant];
 
+//para tp reemplazar a=x y b=x por a=0 y b=0;
+
+Carga aleatoria
+for
+do while/while
+
+-DATO
+-POSICION DEL VECTOR DONDE ESTÁ
+
+para no pedir la posicion hago
+int vec[cant];
+int estado[cant];
+for(i=0;i<cant;i++){
+estado[i]=0;
+}
+como encontrar algo:
+int legaux;
+int leg[cant];
+int flag= 0;
+
+printf("ingrese legajo auxiliar");
+scanf("%d",&LegAux);
+for(i=0;i<cant;i++)
+{
+if(legaux == leg[i])
+{
+printf("dato encontrado");
+flag = 1;
+break;
+}
+
+if(flag = 0)
+{
+printf("dato inexistente");
+}
+}
+}
