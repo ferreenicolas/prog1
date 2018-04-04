@@ -1,0 +1,19 @@
+arrays/arreglos/vectores(unidireccional)
+int numero;
+char letra;
+float sueldo;
+double promedio;
+char palabra [10]; //guarda 10 datos del tipo char
+int numeros[5]; //guarda 5 datos del tipo entero
+
+
+#define cant 5
+
+int m1 [cant];
+
+int m2 [cant];
+
+int m3 [cant];
+
+int leg [cant];
+
