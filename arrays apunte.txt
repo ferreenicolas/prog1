@@ -40,17 +40,17 @@ int flag= 0;
 printf("ingrese legajo auxiliar");
 scanf("%d",&LegAux);
 for(i=0;i<cant;i++)
-{
-if(legaux == leg[i])
-{
-printf("dato encontrado");
-flag = 1;
-break;
-}
+	{
+		if(legaux == leg[i])
+		{
+			printf("dato encontrado");
+			flag = 1;
+			break;
+		}
 
-if(flag = 0)
-{
-printf("dato inexistente");
-}
-}
-}
+	if(flag = 0)
+		{
+		printf("dato inexistente");
+		}
+	}
+	}

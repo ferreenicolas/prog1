@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1523277689 source:c:\users\alumno\desktop\funcion vector\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funcion.h"
+
+1523277543 source:c:\users\alumno\desktop\funcion vector\funcion.c
+
+1523276138 c:\users\alumno\desktop\funcion vector\funcion.h
+
+1523280291 source:c:\users\alumno\desktop\prog1-master\funcion vector\main.c
+	<stdio.h>
+	<stdlib.h>
+
