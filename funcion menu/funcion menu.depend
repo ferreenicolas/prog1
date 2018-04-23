@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1524493432 source:c:\users\alumno\desktop\funcion menu\main.c
+	<stdio.h>
+	<stdlib.h>
+	"menu.h"
+
+1524492762 c:\users\alumno\desktop\funcion menu\menu.h
+
+1524493363 source:c:\users\alumno\desktop\funcion menu\menu.c
+	<stdio.h>
+	<stdlib.h>
+	"menu.h"
+
