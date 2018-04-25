@@ -17,8 +17,15 @@ typedef struct
     float sueldo;
     int isEmpty;
     eFecha fechaIngreso;
+    int idSector;
 }eEmpleado;
 
+typedef struct
+{
+int id;
+char descripcion[51];
+int isEmpty;
+}eSector;
 
 //FUNCIONES:
 //GENERA MENU:
@@ -34,6 +41,13 @@ void listar(eEmpleado[], int);
 
 int buscarEmpleado(eEmpleado[] , int , int);
 
+void mostrarEmpleado(eEmpleado);
+
+int buscarEmpleados(eEmpleado emp[] , int tam , int legajo);
+
+void bajaEmpleado(eEmpleado vec[], int tam);
+
+void hardCode(eSector sectores[]);
 
 
 
