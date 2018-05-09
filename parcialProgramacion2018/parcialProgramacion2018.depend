@@ -1,13 +1,18 @@
 # depslib dependency file v1.0
-1525872202 source:c:\users\alumno\desktop\parcialprogramacion2018\funciones.c
+1525878160 source:c:\users\alumno\desktop\parcialprogramacion2018\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+	"input.h"
+
+1525876580 c:\users\alumno\desktop\parcialprogramacion2018\funciones.h
+
+1525876531 source:c:\users\alumno\desktop\parcialprogramacion2018\main.c
 	<stdio.h>
 	<stdlib.h>
 	"funciones.h"
 
-1525873449 c:\users\alumno\desktop\parcialprogramacion2018\funciones.h
+1525876763 source:c:\users\alumno\desktop\parcialprogramacion2018\input.c
 
-1525873449 source:c:\users\alumno\desktop\parcialprogramacion2018\main.c
-	<stdio.h>
-	<stdlib.h>
-	"funciones.h"
+1525876784 c:\users\alumno\desktop\parcialprogramacion2018\input.h
 

@@ -32,8 +32,6 @@ int buscarProducto(eProducto prod[] , int tam , int codigoProducto);
 
 int buscarLibre(eProducto prod[] , int tam);
 
-void listar(eProducto prod[], int tam);
-
 void mostrarProducto(eProducto prod);
 
 void modificaProducto(eProducto prod[], int tam, eProveedor prov[], int tam2);

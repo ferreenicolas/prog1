@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "funciones.h"
+#include "input.h"
+/** \brief lista un menu
+ *
+ * \return retorna la opcion seleccionada
+ *
+ */
 
 int menu()
 {
@@ -20,6 +26,13 @@ int menu()
 
     return opcion;
 }
+/** \brief inicializaliza el vector de productos en 0
+ *
+ * \param vector de prodcutos
+ * \param tamaño del mismo
+ * \return void
+ *
+ */
 
 void inicializarProductos(eProducto prod[] , int tam)
 {
@@ -46,6 +59,13 @@ int buscarLibre(eProducto prod[] , int tam)
 
     return indiceVacio;
 }
+/** \brief hardcodea las descripciones y los codigos
+ *
+ * \param vetor de proveedor
+ * \return void
+ *
+ */
+
 void hardCode(eProveedor proveedores[]){
 
     proveedores[0].codigoProveedor = 1;
@@ -69,6 +89,14 @@ void hardCode(eProveedor proveedores[]){
     proveedores[4].estado = 1;
 
 }
+/** \brief compruebo si existe el codigo en el array de producto
+ *
+ * \param vector de producto
+ * \param tamaño del mismo
+ * \param el codigo que tomo para comprobar
+ * \return el indice donde se ubica
+ *
+ */
 
 int buscarProducto(eProducto prod[] , int tam , int codigoProducto)
 {
@@ -85,6 +113,13 @@ int buscarProducto(eProducto prod[] , int tam , int codigoProducto)
     }
     return codigoProductoEstado;
 }
+/** \brief alta de productos
+ *
+ * \param vector de producto
+ * \param tamaño del mismo
+ * \return void
+ *
+ */
 
 void alta(eProducto prod[], int tam)
 {
@@ -92,6 +127,8 @@ void alta(eProducto prod[], int tam)
     int indice;
     int codigoProd;
     eProducto nuevoProducto;
+
+
 
 
     system("cls");
@@ -119,9 +156,17 @@ void alta(eProducto prod[], int tam)
                 }
                 printf("Importe: ");
                 scanf("%d", &nuevoProducto.importe);
+                while(nuevoProducto.importe < 0)
+                    {
+                        scanf("%d", &nuevoProducto.importe);
+                    }
 
                 printf("Cantidad: ");
                 scanf("%d", &nuevoProducto.cantidad);
+                while(nuevoProducto.cantidad < 0)
+                    {
+                        scanf("%d", &nuevoProducto.cantidad);
+                    }
 
             prod[indice] = nuevoProducto;
 
@@ -152,34 +197,35 @@ void alta(eProducto prod[], int tam)
                     prod[indice] = nuevoProducto;
 
 
+
                     }
 }
 
 
-void listar(eProducto prod[], int tam)
-{
-
-    int i;
-
-    printf("Codigo:\tDescripcion:\tCantidad:\tImporte:\tProveedor:\n\n");
-
-    for(i=0; i<tam; i++)
-    {
-        if(prod[i].estado == 1)
-        {
-            printf("%d\t\t%s\t\t%d\t\t%d\t\t%s\n", prod[i].codigoProducto, prod[i].descripcion, prod[i].cantidad, prod[i].importe);
-        }
-    }
-
-}
+/** \brief muestra un elemento de la estructura al completo
+ *
+ * \param toma el valor de producto de la estructura
+ * \return void
+ *
+ */
 
 void mostrarProducto(eProducto prod)
 {
     printf("%d\t%s\t%d\t%d\n", prod.codigoProducto, prod.descripcion, prod.importe, prod.cantidad);
 }
+/** \brief modifica un valor que elija el usuario y lo guarda una vez mas
+ *
+ * \param array de producto
+ * \param tamaño del array de producto
+ * \param array de proveedor
+ * \param tamaño del mismo
+ * \return void
+ *
+ */
 
 void modificaProducto(eProducto prod[], int tam, eProveedor prov[], int tam2)
 {
+
     eProducto nuevoDatoProd;
     int codigoProd;
     int esta;
@@ -218,16 +264,29 @@ void modificaProducto(eProducto prod[], int tam, eProveedor prov[], int tam2)
                         printf("Ingrese la nueva descripcion: ");
                         fflush(stdin);
                         gets(nuevoDatoProd.descripcion);
+                        while(strlen(nuevoDatoProd.descripcion)>49)
+                {
+                    printf("Descripcion muy larga. Reingrese.\n");
+                    gets(nuevoDatoProd.descripcion);
+                }
                         strcpy(prod[esta].descripcion , nuevoDatoProd.descripcion);
                         break;
                     case 2:
                         printf("Ingrese el nuevo importe: ");
                         scanf("%d" , &nuevoDatoProd.importe);
+                        while(nuevoDatoProd.importe < 0)
+                    {
+                        scanf("%d", &nuevoDatoProd.importe);
+                    }
                         prod[esta].importe = nuevoDatoProd.importe;
                         break;
                     case 3:
                         printf("Ingrese la nueva cantidad: ");
                         scanf("%d" , &nuevoDatoProd.cantidad);
+                        while(nuevoDatoProd.cantidad < 0)
+                    {
+                        scanf("%d", &nuevoDatoProd.cantidad);
+                    }
                         prod[esta].cantidad = nuevoDatoProd.cantidad;
                         break;
                     case 4:
@@ -244,6 +303,12 @@ void modificaProducto(eProducto prod[], int tam, eProveedor prov[], int tam2)
 
         }
 }
+/** \brief lista un submenu para la modificacion
+ *
+ * \param
+ * \return entero que es la opcion que se eligio
+ *
+ */
 
 int menuModifica()
 {
@@ -261,6 +326,13 @@ int menuModifica()
 
     return opcion;
 }
+/** \brief realiza una baja logica de un producto
+ *
+ * \param array de producto
+ * \param tamaño del mismo
+ * \return void
+ *
+ */
 
 void bajaProducto(eProducto prod[], int tam)
 {
@@ -302,6 +374,13 @@ printf("---Baja Producto---\n\n");
 
         }
 }
+/** \brief informa los datos pedidos en el parcial
+ *
+ * \param array de producto
+ * \param tamaño del mismo
+ * \return void
+ *
+ */
 
 void informar(eProducto prod[], int tam)
 {
@@ -385,6 +464,51 @@ void informar(eProducto prod[], int tam)
 
 void listar(eProducto prod[], int tam, eProveedor prov[], int tam2)
 {
+int i,j;
+eProducto aux;
+
+for(i=0; i<tam-1; i++)
+    {
+
+      for(j=i+1; j<tam;j++)
+        {
+
+            if(prod[i].importe < prod[j].importe)
+                {
+
+                    aux = prod[i];
+                    prod[i] = prod[j];
+                    prod[j]= aux;
+
+                }
+                else
+                    {
+                        if(prod[i].importe == prod[j].importe)
+                            {
+                            if(strcmp(prod[i].descripcion, prod[j].descripcion )< 0)
+                           {
+                            aux= prod[j];
+                            prod[j]= prod[j];
+                            prod[i]= aux;
+                           }
+                            }
+
+                    }
+        }
+    }
+
+    for(i=0; i<tam-1; i++)
+        {
+          for(j=0; j<tam; j++)
+                {
+                    if(prod[i].estado == 1 && prod[i].idProv == prov[j].codigoProveedor)
+                    {
+                        printf("Producto:%s\nImporte:%d\nCantidad:%d\nProveedor:%s\n", prod[i].descripcion, prod[i].importe,prod[i].cantidad,prov[j].descripcion);
+                    }
 
 
+                }
+
+
+        }
 }
