@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1525846792 source:c:\users\nik_2\desktop\prog1-master\parcialprogramacionmam\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1525846792 c:\users\nik_2\desktop\prog1-master\parcialprogramacionmam\funciones.h
+
+1525845229 source:c:\users\nik_2\desktop\prog1-master\parcialprogramacionmam\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
