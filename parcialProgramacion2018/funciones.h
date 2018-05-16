@@ -34,7 +34,7 @@ int buscarLibre(eProducto prod[] , int tam);
 
 void mostrarProducto(eProducto prod);
 
-void modificaProducto(eProducto prod[], int tam, eProveedor prov[], int tam2);
+void modificaProducto(eProducto prod[], int tam);
 
 int menuModifica();
 
@@ -42,7 +42,21 @@ void bajaProducto(eProducto prod[], int tam);
 
 void informar(eProducto prod[], int tam);
 
-void listar(eProducto prod[], int tam, eProveedor prov[], int tam2);
+int subMenuListar();
+
+void listarUno(eProducto prod[], int tam);
+
+void listarDos(eProducto prod[], int tam);
+
+void listarTres(eProducto prod[], int tam);
+
+void listarCuatro(eProducto prod[], int tam);
+
+void listarCinco(eProducto prod[], int tam);
+
+void listarSeis(eProducto prod[], int tam, eProveedor prov[], int tam2);
+
+
 
 #endif // FUNCIONES_H_INCLUDED
 

@@ -7,10 +7,12 @@ int main()
 {
     char letra = 's';
     int flag=0;
+    int opcionListar;
     eProducto productos[5];
     eProveedor proveedores[5];
 
     inicializarProductos(productos , 5);
+    hardCode(proveedores);
 
     do
     {
@@ -24,7 +26,7 @@ int main()
         case 2:
             if(flag == 1)
                 {
-                    modificaProducto(productos, 5, proveedores, 5);
+                    modificaProducto(productos, 5);
 
                 }else
                 {
@@ -61,7 +63,52 @@ int main()
         case 5:
              if(flag ==1)
                 {
-                   listar(productos, 5, proveedores ,5);
+                   do
+
+                {
+                    switch(opcionListar = subMenuListar())
+                    {
+                        case 1:
+                            listarUno(productos, 5);
+                            system("pause");
+                            system("cls");
+                            break;
+                        case 2:
+                            listarDos(productos, 5);
+                            system("pause");
+                            system("cls");
+                            break;
+                        case 3:
+                            listarTres(productos, 5);
+                            system("pause");
+                            system("cls");
+                            break;
+                        case 4:
+                            listarCuatro(productos, 5);
+                            system("pause");
+                            system("cls");
+                            break;
+                        case 5:
+                            listarCinco(productos, 5);
+                            system("pause");
+                            system("cls");
+                            break;
+                        case 6:
+                            listarSeis(productos, 5, proveedores, 5);
+                            system("pause");
+                            system("cls");
+                        case 7:
+                            system("pause");
+                        case 13:
+                            opcionListar = 6;
+                            break;
+                        default:
+                            printf("Ingrese una opcion valida.");
+                            break;
+                    }
+                }
+                while(opcionListar != 6);
+                break;
                 }else
                 {
                     printf("Debe ingresar un producto antes.\n");

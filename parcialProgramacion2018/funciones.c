@@ -14,12 +14,12 @@ int menu()
 
     system("cls");
 
-    printf("1 - ALTA PRODUCTO.\n");
-    printf("2 - MODIFICACION PRODUCTO.\n");
-    printf("3 - BAJA PRODUCTO.\n");
-    printf("4 - INFORMAR.\n");
-    printf("5 - LISTAR.\n");
-    printf("6 - SALIR.\n");
+    printf("1 - Alta producto.\n");
+    printf("2 - Modificacion producto.\n");
+    printf("3 - Baja producto.\n");
+    printf("4 - Informar.\n");
+    printf("5 - Listar.\n");
+    printf("6 - Salir.\n");
 
     printf("\nElija lo que quiere hacer: ");
     scanf("%d" , &opcion);
@@ -68,25 +68,33 @@ int buscarLibre(eProducto prod[] , int tam)
 
 void hardCode(eProveedor proveedores[]){
 
-    proveedores[0].codigoProveedor = 1;
-    strcpy(proveedores[0].descripcion, "ARCOR");
-    proveedores[0].estado = 1;
+    eProveedor nuevoProveedor;
 
-    proveedores[1].codigoProveedor = 2;
-    strcpy(proveedores[1].descripcion, "NESTLE");
-    proveedores[1].estado =1;
+    nuevoProveedor.codigoProveedor = 1;
+    strcpy(nuevoProveedor.descripcion, "Arcor");
+    nuevoProveedor.estado = 1;
+    proveedores[0] = nuevoProveedor;
+
+
+    nuevoProveedor.codigoProveedor = 2;
+    strcpy(nuevoProveedor.descripcion, "Nestle");
+    nuevoProveedor.estado = 1;
+    proveedores[1] = nuevoProveedor;
 
     proveedores[2].codigoProveedor = 3;
-    strcpy(proveedores[2].descripcion, "SERENISIMA");
+    strcpy(proveedores[2].descripcion, "Serenisima");
     proveedores[2].estado = 1;
+    proveedores[2] = nuevoProveedor;
 
     proveedores[3].codigoProveedor = 4;
-    strcpy(proveedores[3].descripcion, "SANCOR");
+    strcpy(proveedores[3].descripcion, "Sancor");
     proveedores[3].estado = 1;
+    proveedores[3] = nuevoProveedor;
 
     proveedores[4].codigoProveedor = 5;
-    strcpy(proveedores[4].descripcion, "COCACOLA");
+    strcpy(proveedores[4].descripcion, "Coca Cola");
     proveedores[4].estado = 1;
+    proveedores[4] = nuevoProveedor;
 
 }
 /** \brief compruebo si existe el codigo en el array de producto
@@ -189,7 +197,7 @@ void alta(eProducto prod[], int tam)
                     printf("Proveedor: \n");
 
                     do{
-                    printf("1-ARCOR.\n2-NESTLE.\n3-SERENISIMA.\n4-SANCOR.\n5-COCACOLA.\n");
+                    printf("1-Arcor.\n2-Nestle.\n3-Serenisima.\n4-Sancor.\n5-Cocacola.\n");
                     scanf("%d", &nuevoProducto.idProv);
                     }while(nuevoProducto.idProv > 5);
 
@@ -223,7 +231,7 @@ void mostrarProducto(eProducto prod)
  *
  */
 
-void modificaProducto(eProducto prod[], int tam, eProveedor prov[], int tam2)
+void modificaProducto(eProducto prod[], int tam)
 {
 
     eProducto nuevoDatoProd;
@@ -296,8 +304,7 @@ void modificaProducto(eProducto prod[], int tam, eProveedor prov[], int tam2)
 
             }while(salir != 1);
             printf("\nSe ha realizado la modificacion\n\n");
-        }
-        else{
+        }else{
             printf("\nSe ha cancelado la modificacion\n\n");
         }
 
@@ -319,8 +326,7 @@ int menuModifica()
     printf("1-Descripcion\n");
     printf("2-Importe\n");
     printf("3-Cantidad\n");
-    printf("4-Proveedor\n");
-    printf("5-Salir\n");
+    printf("4-Salir\n");
     printf("\nIndique opcion: ");
     scanf("%d", &opcion);
 
@@ -384,9 +390,9 @@ printf("---Baja Producto---\n\n");
 
 void informar(eProducto prod[], int tam)
 {
-    int total = 0;
+    float total = 0;
     float promedio;
-    int cantidad =0;
+    float cantidad =0;
     int cantidadMasProm = 0;
     int cantidadMenosProm = 0;
     int cantidadMas10=0;
@@ -413,7 +419,7 @@ void informar(eProducto prod[], int tam)
         }
 
 
-    printf("A-TOTAL||PROMEDIO IMPORTES||CANTIDAD DE PRODUCTOS QUE NO SUPERAN EL PROMEDIO.\n\n");
+    printf("A-Total||Promedio importes||Cantidad de productos que no superan el promedio.\n\n");
 
     printf("%d\t\t%.2f\t\t%d\n", total, promedio, cantidadMasProm);
 
@@ -436,7 +442,7 @@ void informar(eProducto prod[], int tam)
         }
 
 
-    printf("A-TOTAL\tPROMEDIO IMPORTES\tCANTIDAD DE PRODUCTOS QUE NO SUPERAN EL PROMEDIO.\n\n");
+    printf("A-Total\tPromedio importes\tCantidad de productos que no superan el promedio.\n\n");
 
     printf("%d\t\t%.2f\t\t%d\n", total, promedio, cantidadMenosProm);
 
@@ -454,61 +460,228 @@ void informar(eProducto prod[], int tam)
                         }
                 }
         }
-    printf("CANTIDAD <= 10.\tCANTIDAD > 10.\n");
+    printf("Cantidad <= 10.\tCantidad > 10.\n");
     printf("%d\t\t%d\t\t\n", cantidadMenos10, cantidadMas10);
 
 
 }
 
 
+int subMenuListar()
+{
+    int opcion;
 
-void listar(eProducto prod[], int tam, eProveedor prov[], int tam2)
+    printf("1- Listado descripcion y productos ordenados.\n");
+    printf("2- Todos los productos que en cantidad son menor o igual a 10.\n");
+    printf("3- Todos los productos cantidad mayor a 10.\n");
+    printf("4- Todos los productos que superan el promedio de los importes.\n");
+    printf("5- Todos los productos que NO superan el promedio de los importes.\n");
+    printf("6- Todos los proveedores cuya cantidad de producto es igual o menor a 10.\n");
+    printf("7- Todos los productos provistos por cada proveedor.\n");
+    printf("8- Todos los productos provistos por un proveedor determinado.\n");
+    printf("9- El proveedor que provee mas productos, mostrando los productos.\n");
+    printf("10- El proveedor que provee menos productos, mostrando los productos.\n");
+    printf("11- El proveedor que provee el producto mas caro, mostrando el producto.\n");
+    printf("12- El proveedor que provee el producto mas barato, mostrando el producto.\n");
+    printf("13- Salir.\n");
+
+    printf("Elija la accion que desea realizar: ");
+    scanf("%d", &opcion);
+    system("cls");
+    return opcion;
+
+}
+
+void listarUno(eProducto prod[], int tam)
 {
 int i,j;
-eProducto aux;
-
+eProducto eAux;
+printf("Listado descripcion y productos ordenados.\n");
 for(i=0; i<tam-1; i++)
     {
 
       for(j=i+1; j<tam;j++)
         {
-
-            if(prod[i].importe < prod[j].importe)
+            if(prod[i].estado == 1 && prod[j].estado ==1)
+                {
+                if(prod[i].importe < prod[j].importe)
                 {
 
-                    aux = prod[i];
+                    eAux = prod[i];
                     prod[i] = prod[j];
-                    prod[j]= aux;
+                    prod[j]= eAux;
 
                 }
                 else
                     {
                         if(prod[i].importe == prod[j].importe)
                             {
-                            if(strcmp(prod[i].descripcion, prod[j].descripcion )< 0)
-                           {
-                            aux= prod[j];
-                            prod[j]= prod[j];
-                            prod[i]= aux;
-                           }
+                                if(strcmp(prod[i].descripcion, prod[j].descripcion )> 0)
+                                {
+                                    eAux= prod[i];
+                                    prod[i]= prod[j];
+                                    prod[j]= eAux;
+                                }
                             }
 
                     }
+                }
+
         }
     }
 
-    for(i=0; i<tam-1; i++)
+
+    printf("Producto\t\tImporte\n\n");
+
+    for(i=0; i<tam; i++)
         {
-          for(j=0; j<tam; j++)
+            if(prod[i].estado == 1)
+            {
+                printf("%s\t\t\t%d\n", prod[i].descripcion, prod[i].importe);
+            }
+        }
+        printf("\n\n");
+}
+
+void listarDos(eProducto prod[], int tam)
+{
+    int i;
+
+
+    printf("Todos los productos que en cantidad son menor o igual a 10.\n\n");
+    printf("Producto\t\tCodigo\t\tCantidad\n\n");
+    for(i=0; i<tam;i++)
+    {
+        if(prod[i].estado == 1 && prod[i].cantidad <11)
+            {
+
+                printf("%s\t\t\t%d\t\t%d\n\n", prod[i].descripcion, prod[i].codigoProducto, prod[i].cantidad);
+
+            }
+
+    }
+    printf("\n\n");
+}
+
+void listarTres(eProducto prod[], int tam)
+{
+    int i;
+
+
+    printf("Todos los productos que en cantidad son mayor a 10.\n\n");
+    printf("Producto\t\tCodigo\t\tCantidad\n\n");
+    for(i=0; i<tam;i++)
+    {
+        if(prod[i].estado == 1 && prod[i].cantidad > 10)
+            {
+
+                printf("%s\t\t\t%d\t\t%d\n\n", prod[i].descripcion, prod[i].codigoProducto, prod[i].cantidad);
+
+            }
+
+    }
+    printf("\n\n");
+}
+
+void listarCuatro(eProducto prod[], int tam)
+{
+    float cantidad =0;
+    float total = 0;
+    float promedio;
+    int i;
+
+
+        for(i=0;i<tam;i++)
+        {
+              if(prod[i].estado == 1)
                 {
-                    if(prod[i].estado == 1 && prod[i].idProv == prov[j].codigoProveedor)
+                    total = total + prod[i].importe;
+                    cantidad++;
+                }
+        }
+        promedio = total / cantidad;
+        printf("Todos los productos que superan el promedio de los importes.\n");
+        printf("Producto\t\tCodigo\t\tImporte\n\n");
+        printf("Promedio:%.2f \n\n", promedio);
+        for(i=0;i<tam;i++)
+            {
+                if(prod[i].estado==1 && prod[i].importe > promedio)
                     {
-                        printf("Producto:%s\nImporte:%d\nCantidad:%d\nProveedor:%s\n", prod[i].descripcion, prod[i].importe,prod[i].cantidad,prov[j].descripcion);
+                        printf("%s\t\t\t%d\t\t%d\n\n", prod[i].descripcion, prod[i].codigoProducto, prod[i].importe);
+                    }
+            }
+
+
+
+}
+
+
+void listarCinco(eProducto prod[], int tam)
+{
+    float cantidad =0;
+    float total = 0;
+    float promedio;
+    int i;
+
+
+        for(i=0;i<tam;i++)
+        {
+              if(prod[i].estado == 1)
+                {
+                    total = total + prod[i].importe;
+                    cantidad++;
+                }
+        }
+        promedio = total / cantidad;
+        printf("Todos los productos que NO superan el promedio de los importes.\n");
+        printf("Producto\t\tCodigo\t\tImporte\n\n");
+        printf("Promedio:%.2f \n\n", promedio);
+        for(i=0;i<tam;i++)
+            {
+                if(prod[i].estado==1 && prod[i].importe < promedio)
+                    {
+                        printf("%s\t\t\t%d\t\t%d\n\n", prod[i].descripcion, prod[i].codigoProducto, prod[i].importe);
                     }
 
+            }
 
-                }
+
+
+}
+
+void listarSeis(eProducto prod[], int tam, eProveedor prov[], int tam2)
+{
+
+    int i;
+    int j;
+
+
+    for(i=0; i <tam2; i++)
+        {
+
+
+                    for(j=0; j <tam; j++)
+                    {
+                        if(prod[j].idProv == prov[i].codigoProveedor)
+                        {
+                            if(prod[j].cantidad<11)
+                                {
+                                printf("%s\t\t%s\t\t%d\n\n", prod[j].descripcion, prov[i].descripcion,prod[j].codigoProducto);
+                                //break;
+                                }
+
+
+                        }
+                    }
+                        printf("%d\n", prod[j].estado);
+                        printf("%d\n", prov[i].estado);
+
 
 
         }
+
+
+
+
+
 }
