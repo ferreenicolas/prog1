@@ -81,19 +81,19 @@ void hardCode(eProveedor proveedores[]){
     nuevoProveedor.estado = 1;
     proveedores[1] = nuevoProveedor;
 
-    proveedores[2].codigoProveedor = 3;
-    strcpy(proveedores[2].descripcion, "Serenisima");
-    proveedores[2].estado = 1;
+    nuevoProveedor.codigoProveedor = 3;
+    strcpy(nuevoProveedor.descripcion, "Serenisima");
+    nuevoProveedor.estado = 1;
     proveedores[2] = nuevoProveedor;
 
-    proveedores[3].codigoProveedor = 4;
-    strcpy(proveedores[3].descripcion, "Sancor");
-    proveedores[3].estado = 1;
+    nuevoProveedor.codigoProveedor = 4;
+    strcpy(nuevoProveedor.descripcion, "Sancor");
+    nuevoProveedor.estado = 1;
     proveedores[3] = nuevoProveedor;
 
-    proveedores[4].codigoProveedor = 5;
-    strcpy(proveedores[4].descripcion, "Coca Cola");
-    proveedores[4].estado = 1;
+    nuevoProveedor.codigoProveedor = 5;
+    strcpy(nuevoProveedor.descripcion, "Coca Cola");
+    nuevoProveedor.estado = 1;
     proveedores[4] = nuevoProveedor;
 
 }
@@ -555,7 +555,7 @@ void listarDos(eProducto prod[], int tam)
         if(prod[i].estado == 1 && prod[i].cantidad <11)
             {
 
-                printf("%s\t\t\t%d\t\t%d\n\n", prod[i].descripcion, prod[i].codigoProducto, prod[i].cantidad);
+                printf("%s\t\t\t%d\t\t%d\n\n", prod[i].descripcion, prod[i].codigoProducto, prod[i].cantidad );
 
             }
 
@@ -656,25 +656,51 @@ void listarSeis(eProducto prod[], int tam, eProveedor prov[], int tam2)
     int j;
 
 
-    for(i=0; i <tam2; i++)
+
+   /*
+    for(i=0; i < tam; i++)
         {
+             if(prod[i].estado == 1)
+            {
 
+                printf("desc:%s\t\t\tcodigoprod: %d\t\tcant%d\t\timpor%d\t\testad%d\t\tidprov%d\n\n", prod[i].descripcion, prod[i].codigoProducto, prod[i].cantidad,prod[i].importe, prod[i].estado, prod[i].idProv);
 
-                    for(j=0; j <tam; j++)
+            }
+
+        }
+        system("pause");
+            for(i=0; i < tam; i++)
+        {
+             if(prov[i].estado == 1)
+            {
+
+                printf("desc:%s\t\testad%d\t\tidprov%d\n\n", prov[i].descripcion, prov[i].estado, prov[i].codigoProveedor);
+
+            }
+
+        }
+         system("pause");
+    */
+
+    for(i=0; i <tam; i++)
+        {
+            if(prod[i].estado == 1 && prod[i].cantidad < 11)
+                {
+                    for(j=0; j <tam2; j++)
                     {
-                        if(prod[j].idProv == prov[i].codigoProveedor)
+                        if( prod[i].idProv == prov[j].codigoProveedor)
                         {
-                            if(prod[j].cantidad<11)
-                                {
-                                printf("%s\t\t%s\t\t%d\n\n", prod[j].descripcion, prov[i].descripcion,prod[j].codigoProducto);
-                                //break;
-                                }
 
+                                printf("%s\t\t%s\t\t%d\n\n", prod[i].descripcion, prov[j].descripcion, prod[i].codigoProducto);
+                                break;
 
                         }
+
+                     }
+
+
                     }
-                        printf("%d\n", prod[j].estado);
-                        printf("%d\n", prov[i].estado);
+
 
 
 
