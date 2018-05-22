@@ -711,3 +711,589 @@ void listarSeis(eProducto prod[], int tam, eProveedor prov[], int tam2)
 
 
 }
+
+
+
+void listarSiete(eProducto prod[], int tam, eProveedor prov[], int tam2)
+{
+    printf("\nTodos los productos provistos por cada proveedor.\n");
+
+    int i,j;
+
+
+
+
+
+
+        for(i=0; i <tam; i++)
+        {
+            if(prod[i].estado == 1)
+                {
+                    for(j=0; j <tam2; j++)
+                    {
+                        if( prod[i].idProv == prov[j].codigoProveedor)
+                        {
+
+                                printf("%s\t\t%s\t\t%d\n\n", prov[j].descripcion, prod[i].descripcion, prod[i].codigoProducto);
+                                break;
+
+                        }
+
+                     }
+
+
+                    }
+
+
+
+
+        }
+}
+
+void listarOcho(eProducto prod[], int tam, eProveedor prov[], int tam2)
+{
+    printf("\nTodos los productos provistos por un proveedor determinado.\n");
+
+    int i,j,opcion;
+
+
+
+    printf("1- Arcor.\n");
+    printf("2- Nestle.\n");
+    printf("3- Serenisima.\n");
+    printf("4- Sancor.\n");
+    printf("5- Coca-Cola.\n");
+
+    printf("Seleccione de que proveedor desea mostrar los productos.\n");
+    scanf("%d", &opcion);
+
+
+        for(i=0; i <tam; i++)
+        {
+            if(prod[i].estado == 1)
+                {
+                    for(j=0; j <tam2; j++)
+                    {
+                        if(opcion == prov[j].codigoProveedor){
+                                        if( prod[i].idProv == prov[j].codigoProveedor)
+                        {
+
+                                printf("%s\t\t%s\t\t%d\n\n", prov[j].descripcion, prod[i].descripcion, prod[i].codigoProducto);
+                                break;
+
+                        }
+
+
+                        }
+
+
+                     }
+
+
+                    }
+
+
+
+
+        }
+}
+
+
+void listarNueve(eProducto prod[], int tam, eProveedor prov[], int tam2)
+{
+    printf("\nEl proveedor que provee mas productos, mostrando los productos.\n");
+
+    int i,j;
+    eProveedor aux;
+    int contador1 = 0;
+    int contador2 = 0;
+    int contador3 = 0;
+    int contador4 = 0;
+    int contador5 = 0;
+    int flag=0;
+
+
+
+
+
+
+        for(i=0; i <tam; i++)
+        {
+            if(prod[i].estado == 1)
+                {
+                    for(j=0; j <tam2; j++)
+                    {
+                        if( prod[i].idProv == prov[j].codigoProveedor)
+                        {
+                            if(prov[j].codigoProveedor == 1){
+                                contador1++;
+                                break;
+                            }else
+                            {
+                                if(prov[j].codigoProveedor == 2){
+                                contador2++;
+                                break;
+                            }else
+                            {
+                                if(prov[j].codigoProveedor == 3){
+                                contador3++;
+                                break;
+                            }else
+                            {
+                                if(prov[j].codigoProveedor == 4){
+                                contador4++;
+                                break;
+                            }else{
+                                contador5++;
+                                break;
+                            }
+                            }
+                            }
+                            }
+
+                        }
+
+                     }
+
+
+                 }
+
+
+
+
+        }
+
+        if(contador1 > contador2 && contador1 > contador3 && contador1 > contador4 && contador1 > contador5)
+        {
+            flag=1;
+
+        }else
+        {
+            if(contador2 > contador3 && contador2 > contador4 && contador2 > contador5)
+        {
+            flag=2;
+
+        }else
+        {
+            if(contador3 > contador4 && contador3 > contador5)
+        {
+            flag=3;
+
+        }else
+        {
+            if(contador4 > contador5)
+        {
+            flag=4;
+
+        }else
+        {
+            flag=5;
+        }
+        }
+        }
+        }
+
+
+
+        if(flag==1)
+        {
+            printf("El proveedor con mas productos es: %s\n", prov[0].descripcion);
+        }else
+        {
+            if(flag==2)
+            {
+            printf("El proveedor con mas productos es: %s\n", prov[1].descripcion);
+            }else
+            {
+                if(flag==3)
+                {
+                printf("El proveedor con mas productos es: %s\n", prov[2].descripcion);
+                }else
+                {
+                    if(flag==1)
+                    {
+                    printf("El proveedor con mas productos es: %s\n", prov[3].descripcion);
+                    }else
+                    {
+                        printf("El proveedor con mas productos es: %s\n", prov[4].descripcion);
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+
+        for(i=0; i <tam; i++)
+        {
+            if(prod[i].estado == 1)
+                {
+                    for(j=0; j <tam2; j++)
+                    {
+                        if(prod[i].idProv == prov[j].codigoProveedor)
+                        {
+                            if(flag==1)
+                                {
+                                    if(prov[j].codigoProveedor == 1){
+
+
+                                        printf("%s\t\t%d\n\n",prod[i].descripcion, prod[i].codigoProducto);
+                                    }
+                                }else
+                                {
+                                    if(flag==2)
+                                {
+                                    if(prov[j].codigoProveedor == 2){
+
+
+                                        printf("%s\t\t%d\n\n",prod[i].descripcion, prod[i].codigoProducto);
+                                    }
+                                }else
+                                {
+                                     if(flag==3)
+                                {
+                                    if(prov[j].codigoProveedor == 3){
+
+
+                                        printf("%s\t\t%d\n\n",prod[i].descripcion, prod[i].codigoProducto);
+                                    }
+                                }else
+                                {
+                                    if(flag==4)
+                                {
+                                    if(prov[j].codigoProveedor == 4){
+
+
+                                        printf("%s\t\t%d\n\n",prod[i].descripcion, prod[i].codigoProducto);
+                                    }
+                                }
+                                else
+                                    {
+
+                                    if(prov[j].codigoProveedor == 5){
+
+
+                                        printf("%s\t\t%d\n\n",prod[i].descripcion, prod[i].codigoProducto);
+                                    }
+
+                                    }
+                                }
+
+                                }
+
+                                }
+
+
+
+                        }
+
+                     }
+                }
+        }
+
+
+}
+
+void listarDiez(eProducto prod[], int tam, eProveedor prov[], int tam2)
+{
+    printf("\nEl proveedor que provee menos productos, mostrando los productos.\n");
+
+    int i,j;
+    eProveedor aux;
+    int contador1 = 0;
+    int contador2 = 0;
+    int contador3 = 0;
+    int contador4 = 0;
+    int contador5 = 0;
+    int flag=0;
+
+
+
+
+
+
+        for(i=0; i <tam; i++)
+        {
+            if(prod[i].estado == 1)
+                {
+                    for(j=0; j <tam2; j++)
+                    {
+                        if( prod[i].idProv == prov[j].codigoProveedor)
+                        {
+                            if(prov[j].codigoProveedor == 1){
+                                contador1++;
+                                break;
+                            }else
+                            {
+                                if(prov[j].codigoProveedor == 2){
+                                contador2++;
+                                break;
+                            }else
+                            {
+                                if(prov[j].codigoProveedor == 3){
+                                contador3++;
+                                break;
+                            }else
+                            {
+                                if(prov[j].codigoProveedor == 4){
+                                contador4++;
+                                break;
+                            }else{
+                                contador5++;
+                                break;
+                            }
+                            }
+                            }
+                            }
+
+                        }
+
+                     }
+
+
+                 }
+
+
+
+
+        }
+
+        if(contador1 < contador2 && contador1 < contador3 && contador1 < contador4 && contador1 < contador5)
+        {
+            flag=1;
+
+        }else
+        {
+            if(contador2 < contador3 && contador2 < contador4 && contador2 < contador5)
+        {
+            flag=2;
+
+        }else
+        {
+            if(contador3 < contador4 && contador3 < contador5)
+        {
+            flag=3;
+
+        }else
+        {
+            if(contador4 < contador5)
+        {
+            flag=4;
+
+        }else
+        {
+            flag=5;
+        }
+        }
+        }
+        }
+
+
+
+        if(flag==1)
+        {
+            printf("El proveedor con menos productos es: %s\n", prov[0].descripcion);
+        }else
+        {
+            if(flag==2)
+            {
+            printf("El proveedor con menos productos es: %s\n", prov[1].descripcion);
+            }else
+            {
+                if(flag==3)
+                {
+                printf("El proveedor con menos productos es: %s\n", prov[2].descripcion);
+                }else
+                {
+                    if(flag==1)
+                    {
+                    printf("El proveedor con menos productos es: %s\n", prov[3].descripcion);
+                    }else
+                    {
+                        printf("El proveedor con menos productos es: %s\n", prov[4].descripcion);
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+
+        for(i=0; i <tam; i++)
+        {
+            if(prod[i].estado == 1)
+                {
+                    for(j=0; j <tam2; j++)
+                    {
+                        if(prod[i].idProv == prov[j].codigoProveedor)
+                        {
+                            if(flag==1)
+                                {
+                                    if(prov[j].codigoProveedor == 1){
+
+
+                                        printf("%s\t\t%d\n\n",prod[i].descripcion, prod[i].codigoProducto);
+                                    }
+                                }else
+                                {
+                                    if(flag==2)
+                                {
+                                    if(prov[j].codigoProveedor == 2){
+
+
+                                        printf("%s\t\t%d\n\n",prod[i].descripcion, prod[i].codigoProducto);
+                                    }
+                                }else
+                                {
+                                     if(flag==3)
+                                {
+                                    if(prov[j].codigoProveedor == 3){
+
+
+                                        printf("%s\t\t%d\n\n",prod[i].descripcion, prod[i].codigoProducto);
+                                    }
+                                }else
+                                {
+                                    if(flag==4)
+                                {
+                                    if(prov[j].codigoProveedor == 4){
+
+
+                                        printf("%s\t\t%d\n\n",prod[i].descripcion, prod[i].codigoProducto);
+                                    }
+                                }
+                                else
+                                    {
+
+                                    if(prov[j].codigoProveedor == 5){
+
+
+                                        printf("%s\t\t%d\n\n",prod[i].descripcion, prod[i].codigoProducto);
+                                    }
+
+                                    }
+                                }
+
+                                }
+
+                                }
+
+
+
+                        }
+
+                     }
+                }
+        }
+
+
+}
+
+void listarOnce(eProducto prod[], int tam, eProveedor prov[], int tam2)
+{
+    int i,j;
+    int mayor;
+    eProducto auxMay;
+    eProveedor auxMayo;
+
+
+    for(i=0;i <tam; i++)
+    {
+        for(j=0;j<tam2;j++)
+                    {
+        if(prod[i].estado == 1)
+            {
+                if(prod[i].idProv == prov[j].codigoProveedor)
+                    {
+                        if(i==0)
+                {
+                    mayor = prod[i].importe;
+                    auxMay = prod[i];
+                    auxMayo = prov[j];
+                }else
+                {
+                    if(prod[i].importe > mayor)
+                            {
+                                    mayor = prod[i].importe;
+                                    auxMay = prod[i];
+                                    auxMayo = prov[j];
+                                    break;
+                            }
+
+                }
+
+                    }
+
+            }
+
+
+            }
+
+
+    }
+
+    printf("\nEl proveedor cuyo producto es el mas caro es: %s\n", auxMayo.descripcion);
+    printf("%s\t%d\n", auxMay.descripcion,auxMay.importe);
+
+}
+
+
+void listarDoce(eProducto prod[], int tam, eProveedor prov[], int tam2)
+{
+    int i,j;
+    int menor;
+    eProducto auxMen;
+    eProveedor auxMeno;
+
+
+
+
+    for(i=0;i <tam; i++)
+    {
+        for(j=0;j<tam2;j++)
+                    {
+        if(prod[i].estado == 1)
+            {
+                if(prod[i].idProv == prov[j].codigoProveedor)
+                    {
+                        if(i==0)
+                {
+                    menor = prod[i].importe;
+                }else
+                {
+                    if(prod[i].importe < menor)
+                            {
+                                    menor = prod[i].importe;
+                                    auxMen = prod[i];
+                                    auxMeno = prov[j];
+                                    break;
+                            }
+
+                }
+
+                    }
+
+            }
+
+
+            }
+
+
+    }
+
+    printf("\nEl proveedor cuyo producto es el mas caro es: %s\n", auxMeno.descripcion);
+    printf("%s\t%d\n", auxMen.descripcion,auxMen.importe);
+
+}
+
+
+
+
+
+

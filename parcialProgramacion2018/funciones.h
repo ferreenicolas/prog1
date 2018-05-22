@@ -22,39 +22,51 @@ typedef struct
 
 int menu();
 
-void inicializarProductos(eProducto prod[], int tam);
+void inicializarProductos(eProducto [], int );
 
 void hardCode(eProveedor proveedores[]);
 
-void alta(eProducto prod[], int tam);
+void alta(eProducto [], int );
 
-int buscarProducto(eProducto prod[] , int tam , int codigoProducto);
+int buscarProducto(eProducto [] , int  , int );
 
-int buscarLibre(eProducto prod[] , int tam);
+int buscarLibre(eProducto [] , int );
 
-void mostrarProducto(eProducto prod);
+void mostrarProducto(eProducto );
 
-void modificaProducto(eProducto prod[], int tam);
+void modificaProducto(eProducto [], int );
 
 int menuModifica();
 
-void bajaProducto(eProducto prod[], int tam);
+void bajaProducto(eProducto [], int );
 
-void informar(eProducto prod[], int tam);
+void informar(eProducto [], int );
 
 int subMenuListar();
 
-void listarUno(eProducto prod[], int tam);
+void listarUno(eProducto [], int );
 
-void listarDos(eProducto prod[], int tam);
+void listarDos(eProducto [], int );
 
-void listarTres(eProducto prod[], int tam);
+void listarTres(eProducto [], int );
 
-void listarCuatro(eProducto prod[], int tam);
+void listarCuatro(eProducto [], int );
 
-void listarCinco(eProducto prod[], int tam);
+void listarCinco(eProducto [], int );
 
-void listarSeis(eProducto prod[], int tam, eProveedor prov[], int tam2);
+void listarSeis(eProducto [], int , eProveedor [], int );
+
+void listarSiete(eProducto [], int , eProveedor [], int );
+
+void listarOcho(eProducto [], int , eProveedor [], int );
+
+void listarNueve(eProducto [], int , eProveedor [], int);
+
+void listarDiez(eProducto [], int , eProveedor [], int);
+
+void listarOnce(eProducto [], int , eProveedor [], int);
+
+void listarDoce(eProducto [], int , eProveedor [], int);
 
 
 

@@ -97,8 +97,36 @@ int main()
                             listarSeis(productos, 5, proveedores, 5);
                             system("pause");
                             system("cls");
+                            break;
                         case 7:
+                            listarSiete(productos, 5, proveedores, 5);
                             system("pause");
+                            system("cls");
+                            break;
+                        case 8:
+                            listarOcho(productos, 5, proveedores, 5);
+                            system("pause");
+                            system("cls");
+                            break;
+                        case 9:
+                            listarNueve(productos, 5, proveedores, 5);
+                            system("pause");
+                            system("cls");
+                            break;
+                        case 10:
+                            listarDiez(productos, 5, proveedores, 5);
+                            system("pause");
+                            system("cls");
+                            break;
+                        case 11:
+                            listarOnce(productos, 5, proveedores, 5);
+                            system("pause");
+                            system("cls");
+                            break;
+                        case 12:
+                            listarDoce(productos, 5, proveedores, 5);
+                            system("pause");
+                            system("cls");
                         case 13:
                             opcionListar = 6;
                             break;
@@ -121,6 +149,7 @@ int main()
         default:
             printf("\nERROR, ingrese una opcion valida.\n\n");
             system("pause");
+            menu();
         }
     }
     while(letra == 's');
